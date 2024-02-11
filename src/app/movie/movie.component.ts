@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Movie } from '../../model/movie';
-import { MovieService } from '../../services/movie.service';
+import { Movie } from './movie';
+import { MovieService } from './movie.service';
 
 @Component({
   selector: 'app-movie',
@@ -23,6 +23,5 @@ export class MovieComponent implements OnInit {
       this.movies = response
     })
   }
-
 }
 

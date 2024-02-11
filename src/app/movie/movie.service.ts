@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Movie } from '../model/movie';
+import { Movie } from './movie';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

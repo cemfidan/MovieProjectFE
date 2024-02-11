@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MovieComponent } from './components/movie/movie.component';  
-import { NavbarComponent } from './components/navbar/navbar.component'; 
+import { NavbarComponent } from './navbar/navbar.component';
+import { MovieComponent } from './movie/movie.component';
 
 @Component({
     selector: 'app-root',
