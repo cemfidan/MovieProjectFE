@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Director</th>
+            <th>Movie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let director of directors">
+            <td>{{director.DirectorName}}</td>
+            <td>{{director.MovieId}}</td>
+        </tr>
+    </tbody>
+</table>
