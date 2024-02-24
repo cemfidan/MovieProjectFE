@@ -1,10 +1,10 @@
 export interface Movie {
-    MovieId: number
-    ActorId: number
-    DirectorId: number
-    MovieName: string
-    Description: string
-    ImageUrl: string
-    MovieScore: number
-    ReleaseDate: Date
+    movieId: number
+    actorId: number
+    directorId: number
+    movieName: string
+    description: string
+    imageUrl: string
+    movieScore: number
+    releaseDate: Date
 }

@@ -22,7 +22,7 @@ export class MovieComponent implements OnInit {
   getMovies() {
     this.movieService.getMovies().subscribe(response => {
       this.movies = response
-      //console.log(response) for test
+      console.log(response)
     })
   }
 }
