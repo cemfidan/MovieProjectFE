@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 import { Movie } from './movie';
 import { MovieService } from './movie.service';
 import { RouterOutlet } from '@angular/router';
@@ -13,17 +14,26 @@ import { RouterOutlet } from '@angular/router';
 })
 export class MovieComponent implements OnInit {
   movies: Movie[] = [];
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
-    this.getMovies();
+    this.getAll();
   }
 
-  getMovies() {
-    this.movieService.getMovies().subscribe(response => {
+  getAll() {
+    this.movieService.getAll().subscribe(response => {
       this.movies = response
       console.log(response)
     })
   }
+
+  updateMovie(movie:Movie){
+    console.log(movie);
+  }
+
+  deleteMovie(movie:Movie){
+    console.log(movie);
+  }
+
 }
 
