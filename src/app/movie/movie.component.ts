@@ -28,10 +28,12 @@ export class MovieComponent implements OnInit {
   }
 
   updateMovie(movie:Movie){
+    this.toastrService.success("Update completed!", movie.movieName)
     console.log(movie);
   }
 
   deleteMovie(movie:Movie){
+    this.toastrService.error("Deletion completed!", movie.movieName)
     console.log(movie);
   }
 
