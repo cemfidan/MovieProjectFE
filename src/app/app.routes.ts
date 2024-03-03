@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { MovieComponent } from './movie/movie.component';
 import { ActorComponent } from './actor/actor.component';
 import { DirectorComponent } from './director/director.component';
+import { MovieAddComponent } from './movie/movie-add/movie-add/movie-add.component';
 
 export const routes: Routes = [
-    { path: 'movies', component: MovieComponent },
-    { path: 'actors', component: ActorComponent },
-    { path: 'directors', component: DirectorComponent }
+    // { path: 'movies', component: MovieComponent },
+    // { path: 'actors', component: ActorComponent },
+    // { path: 'directors', component: DirectorComponent },
+    { path: 'movies/add', component: MovieAddComponent }
     // {path:'', redirectTo:'/movies', pathMatch:'full'}
 ];
 

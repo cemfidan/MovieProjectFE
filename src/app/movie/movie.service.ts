@@ -15,22 +15,18 @@ export class MovieService {
   }
 
   getById(id: number): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>('${baseUrl}/${id}')
+    return this.httpClient.get<Movie[]>(this.baseUrl)
   }
 
-  add(data: Movie[]): Observable<any> {
-    return this.httpClient.post(this.baseUrl, data);
+  addMovie(movie: Movie): Observable<Movie> {
+    return this.httpClient.post<Movie>(this.baseUrl, movie);
   }
 
-  update(id: number, data: Movie[]): Observable<any> {
-    return this.httpClient.put('${baseUrl}/${id}', data);
+  updateMovie(movie: Movie): Observable<Movie> {
+    return this.httpClient.put<Movie>(this.baseUrl, movie);
   }
 
-  delete(id: number): Observable<any> {
-    return this.httpClient.delete('${baseUrl}/${id}');
-  }
-
-  deleteAll(): Observable<any> {
-    return this.httpClient.delete(this.baseUrl);
+  deleteMovie(id: number): Observable<Movie> {
+    return this.httpClient.delete<Movie>(this.baseUrl);
   }
 }
