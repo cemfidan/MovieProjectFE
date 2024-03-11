@@ -1,4 +1,4 @@
-export interface Movie {
+export class Movie {
     movieId: number
     actorId: number
     directorId: number
@@ -8,3 +8,4 @@ export interface Movie {
     movieScore: number
     releaseDate: Date
 }
+

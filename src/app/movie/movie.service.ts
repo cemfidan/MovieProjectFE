@@ -27,6 +27,7 @@ export class MovieService {
   }
 
   deleteMovie(id: number): Observable<Movie> {
-    return this.httpClient.delete<Movie>(this.baseUrl);
+    return this.httpClient.delete<Movie>(this.baseUrl+'?id='+id);
   }
+
 }

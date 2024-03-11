@@ -1,0 +1,32 @@
+<h5> {{editing ? "Edit": "Create"}} Movie</h5>
+<form #form="ngForm" (ngSubmit)="add(form)">
+    <div class="form-group">
+        <label>Actor ID</label>
+        <input type="number" class="form-control" name="actorId" placeholder="Actor ID">
+    </div>
+    <div class="form-group">
+        <label>Director ID</label>
+        <input type="number" class="form-control" name="directorId" placeholder="Director ID">
+    </div>
+    <div class="form-group">
+        <label>Movie Name</label>
+        <input type="text" class="form-control" name="movieName" placeholder="Movie Name">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea type="text" class="form-control" name="description" placeholder="Description">
+    </div>
+    <div class="form-group">
+        <label>Image URL</label>
+        <input type="text" class="form-control" name="imageUrl" placeholder="Image URL">
+    </div>
+    <div class="form-group">
+        <label>Movie Score</label>
+        <input type="number" class="form-control" name="movieScore" placeholder="Movie Score">
+    </div>
+    <div class="form-group">
+        <label>Release Date</label>
+        <input type="date" class="form-control" name="releaseDate" placeholder="Release Date">
+    </div>
+    <button type="submit" class="btn btn-primary" routerLink="/submit">{{editing ? "Edit" : "Create"}} Movie</button>
+</form>
