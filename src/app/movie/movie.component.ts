@@ -1,4 +1,4 @@
-import { Component, ContentChild, OnInit, TemplateRef, inject } from '@angular/core';
+import { Component, OnInit, TemplateRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { Movie } from './movie';
@@ -56,7 +56,7 @@ export class MovieComponent implements OnInit {
   }
 
   addMovie(movie: Movie) {
-    this.movieService.addMovie(this.movieBase).subscribe(response => {
+    this.movieService.addMovie(this.movieBase).subscribe(response => { 
       this.movies.push(response);
       this.toastrService.success(movie.movieName, "Movie added")
     }, (error) => {

@@ -20,7 +20,7 @@
       <td>{{ movie.movieScore }}</td>
       <td>{{ movie.releaseDate }}</td>
       <td>
-        <button type="button" class="btn btn-light">Update</button>
+        <button type="button" class="btn btn-light" routerLink="movies/add">Update</button>
       </td>
       <td>
         <ng-template #content let-modal>
@@ -100,5 +100,5 @@
     <button type="button" class="btn btn-outline-dark" (click)="addMovie(modal); modal.Add">Save</button>
   </div>
 </ng-template> -->
-<button type="button" class="btn btn-primary" style="float: right" routerLink="movies/add/movie">Add Movie</button>
+<button type="button" class="btn btn-primary" style="float: right" routerLink="movies/add">Add Movie</button>
 <router-outlet></router-outlet>
