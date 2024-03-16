@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { Movie } from './movie';
 import { MovieService } from './movie.service';
-import { RouterOutlet, RouterModule } from '@angular/router';
+import { RouterOutlet, RouterModule, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -18,8 +18,8 @@ export class MovieComponent implements OnInit {
   private modalService = inject(NgbModal);
   closeResult = '';
   movies: Movie[] = [];
-  movieBase: Movie;
-  constructor(private movieService: MovieService, private toastrService: ToastrService, private modal: NgbModal) { }
+  movieBase: Movie = new Movie();
+  constructor(private movieService: MovieService, private toastrService: ToastrService, private modal: NgbModal, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -59,7 +59,7 @@ export class MovieComponent implements OnInit {
     this.movieService.addMovie(this.movieBase).subscribe(response => {
       this.movies.push(response);
       this.toastrService.success(movie.movieName, "Movie added")
-    }, (error) =>{
+    }, (error) => {
       this.toastrService.error(movie.movieName, "Add failed")
       console.error('Add failed:', error);
     });
