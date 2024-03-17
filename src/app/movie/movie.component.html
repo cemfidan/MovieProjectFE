@@ -20,12 +20,67 @@
       <td>{{ movie.movieScore }}</td>
       <td>{{ movie.releaseDate }}</td>
       <td>
-        <button type="button" class="btn btn-light" routerLink="movies/add">Update</button>
+        <ng-template #contentUpdate let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Update {{movie.movieName}}</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="actorId">Actor ID</label>
+                <div class="input-group">
+                  <input type="number" id="actorId" class="form-control" placeholder="Actor ID" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="directorId">Director ID</label>
+                <div class="input-group">
+                  <input type="number" id="directorId" class="form-control" placeholder="Director ID" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="movieName">Movie Name</label>
+                <div class="input-group">
+                  <input type="text" id="movieName" class="form-control" placeholder="Movie Name" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="description">Description</label>
+                <div class="input-group">
+                  <input type="text" id="description" class="form-control" placeholder="Description" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="imageUrl">Image URL</label>
+                <div class="input-group">
+                  <input type="text" id="imageUrl" class="form-control" placeholder="Image URL" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="movieScore">Movie Score</label>
+                <div class="input-group">
+                  <input type="number" id="movieScore" class="form-control" placeholder="Movie Score" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="releaseDate">Release Date</label>
+                <div class="input-group">
+                  <input type="date" id="releaseDate" class="form-control" placeholder="Release Date" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="updateMovie(modal)" modal.Update>Save</button>
+          </div>
+        </ng-template>
+        <button type="button" class="btn btn-light" (click)="open(contentUpdate)">Update</button>
       </td>
       <td>
-        <ng-template #content let-modal>
+        <ng-template #contentDelete let-modal>
           <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Deleting Movie: {{movie.movieName}}</h4>
+            <h4 class="modal-title" id="modal-basic-title">Delete {{movie.movieName}}?</h4>
             <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
           </div>
           <div class="modal-body ">
@@ -33,72 +88,17 @@
               <div class="mb-3">
                 <label for="deleteMovie">Are you sure?</label>
               </div>
-              <button class="btn btn-danger" type="button" style="float: center"
-                (click)="deleteMovie(movie); modal.dismiss('Cross click')">Delete</button>
               <button class="btn btn-light" type="button" style="float: center"
                 (click)="modal.dismiss('Cross click')">Keep it</button>
+              <button class="btn btn-danger" type="button" style="float: center"
+                (click)="deleteMovie(movie); modal.dismiss('Cross click')">Delete</button>
             </form>
           </div>
         </ng-template>
-        <button (click)="open(content)" type="button" class="btn btn-danger ml-1">Delete</button>
+        <button (click)="open(contentDelete)" type="button" class="btn btn-danger ml-1">Delete</button>
       </td>
     </tr>
   </tbody>
 </table>
-<!-- <ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Add Movie</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="mb-3">
-        <label for="actorId">Actor ID</label>
-        <div class="input-group">
-          <input type="number" id="actorId" class="form-control" placeholder="Actor ID" />
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="directorId">Director ID</label>
-        <div class="input-group">
-          <input type="number" id="directorId" class="form-control" placeholder="Director ID" />
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="movieName">Movie Name</label>
-        <div class="input-group">
-          <input type="text" id="movieName" class="form-control" placeholder="Movie Name" />
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="description">Description</label>
-        <div class="input-group">
-          <input type="text" id="description" class="form-control" placeholder="Description" />
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="imageUrl">Image URL</label>
-        <div class="input-group">
-          <input type="text" id="imageUrl" class="form-control" placeholder="Image URL" />
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="movieScore">Movie Score</label>
-        <div class="input-group">
-          <input type="number" id="movieScore" class="form-control" placeholder="Movie Score" />
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="releaseDate">Release Date</label>
-        <div class="input-group">
-          <input type="date" id="releaseDate" class="form-control" placeholder="Release Date" />
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="addMovie(modal); modal.Add">Save</button>
-  </div>
-</ng-template> -->
 <button type="button" class="btn btn-primary" style="float: right" routerLink="movies/add">Add Movie</button>
 <router-outlet></router-outlet>

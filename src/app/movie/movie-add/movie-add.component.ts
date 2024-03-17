@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieAddComponent implements OnInit {
   movieAddForm: FormGroup;
+  submittedMovie: any;
   constructor(private formBuilder: FormBuilder, private movieService: MovieService, private toastrService: ToastrService, private activeRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -35,6 +36,7 @@ export class MovieAddComponent implements OnInit {
     if (this.movieAddForm.valid) {
       let movieModel = Object.assign({}, this.movieAddForm.value)
       this.movieService.addMovie(movieModel).subscribe(response => {
+        this.submittedMovie = response;
         console.log(response)
         this.toastrService.success("Movie added", "Success")
       }, error => {
@@ -45,5 +47,4 @@ export class MovieAddComponent implements OnInit {
       this.toastrService.error("Form is invalid", "Attention")
     }
   }
-
 }
