@@ -7,27 +7,32 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MovieService {
-  baseUrl = 'https://localhost:7016/api/Movies';
+  baseUrl = 'https://localhost:7016/';
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(this.baseUrl)
+    let newUrl = this.baseUrl + 'api/Movies/getmovies';
+    return this.httpClient.get<Movie[]>(newUrl)
   }
 
   getById(id: number): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(this.baseUrl)
+    let newUrl = this.baseUrl + 'api/Movies/getmovie/'+id;
+    return this.httpClient.get<Movie[]>(newUrl)
   }
 
   addMovie(movie: Movie): Observable<Movie> {
-    return this.httpClient.post<Movie>(this.baseUrl, movie);
+    let newUrl = this.baseUrl + 'api/Movies/add';
+    return this.httpClient.post<Movie>(newUrl, movie);
   }
 
   updateMovie(movie: Movie): Observable<Movie> {
-    return this.httpClient.put<Movie>(this.baseUrl, movie);
+    let newUrl = this.baseUrl + 'api/Movies/update';
+    return this.httpClient.put<Movie>(newUrl, movie);
   }
 
   deleteMovie(id: number): Observable<Movie> {
-    return this.httpClient.delete<Movie>(this.baseUrl+'?id='+id);
+    let newUrl = this.baseUrl + 'api/Movies/delete/'+id;
+    return this.httpClient.delete<Movie>(newUrl);
   }
 
 }
